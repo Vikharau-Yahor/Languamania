@@ -1,0 +1,6 @@
+@Languamania.Server_HostAddress = http://localhost:5231
+
+GET {{Languamania.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
