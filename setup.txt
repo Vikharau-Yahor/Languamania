@@ -1,0 +1,3 @@
+-Dev setup-
+1. Sql server express 2022 + SSMS if needed
+2. move to \.local\certs and generate + import certs: generate-certs.ps1, import-cert.ps1 (this is for both client and backend servers)
