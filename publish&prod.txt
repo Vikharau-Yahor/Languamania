@@ -1,0 +1,9 @@
+****
+Publish
+*********
+1) Publish Server (e.g. to a folder)
+ - set connection string (or need to prepare correct app.settings with all data needed
+ - setup correct path to ssl
+2) build static content in languamania.client using 'npm run build'
+3) copy static content to server folder in wwwroot folder (or just copy dist and rename it to wwwroot)
+4) run *.exe of the server (need to check how to path some env variables)
