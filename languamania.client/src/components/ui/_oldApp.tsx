@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import '../../assets/styles/App.css';
 
 interface Forecast {
     date: string;
