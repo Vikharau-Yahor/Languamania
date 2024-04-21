@@ -1,5 +1,3 @@
-using Languamania.Data.Providers;
-using Languamania.Data.Repositories;
 using Languamania.Data.Repositories.Interfaces;
 using Languamania.Server.APIContracts;
 using Microsoft.AspNetCore.Mvc;
@@ -20,10 +18,10 @@ namespace Languamania.Server.Controllers
         }
 
         [HttpGet(Name = "GetTranslationItems")]
-        public async Task<IEnumerable<TranslationItemContract>> Get()
+        public async Task<IEnumerable<TranslationItemContract>> Get([FromQuery] string? language)
         {
-            var result = (await _translationItemsRepository.GetListAsync()).Select(
-                x => new TranslationItemContract { Id = x.Id, Text = x.Text, Language = x.Language });
+            var result = (await _translationItemsRepository.GetListAsync(language))
+                .Select(x => new TranslationItemContract { Id = x.Id, Text = x.Text, Language = x.Language });
 
             return result;
         }

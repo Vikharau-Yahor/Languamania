@@ -60,10 +60,9 @@ namespace Languamania.Data.Providers
         #endregion
 
         #region Query execution
-        public async Task<IEnumerable<T>> QueryListAsync<T>(string sql) where T: class
+        public async Task<IEnumerable<T>> QueryListAsync<T>(string sql, object? param = null) where T: class
         {
-            return await connection.QueryAsync<T>(sql, transaction: currentTransaction);
-
+            return await connection.QueryAsync<T>(sql, param: param, transaction: currentTransaction);
         }
         public async Task InsertAsync(string sql, object param)
         {

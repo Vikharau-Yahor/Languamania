@@ -12,7 +12,7 @@ namespace Languamania.Data.Providers
         Task CommitAsync();
         Task RollbackAsync();
 
-        Task<IEnumerable<T>> QueryListAsync<T>(string sql) where T : class;
+        Task<IEnumerable<T>> QueryListAsync<T>(string sql, object? param = null) where T : class;
         Task InsertAsync(string sql, object param);
         Task UpdateAsync(string sql, object param);
     }

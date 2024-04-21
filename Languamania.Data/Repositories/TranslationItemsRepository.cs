@@ -16,15 +16,28 @@ namespace Languamania.Data.Repositories
         ITranslationItemsRepository
     {
         private IDbAccessProvider _dbProvider;
-        public TranslationItemsRepository(IDbAccessProvider dbProvider) {
+        public TranslationItemsRepository(IDbAccessProvider dbProvider)
+        {
             _dbProvider = dbProvider;
         }
-        
-        public async Task<IList<TranslationItem>> GetListAsync()
-        {
-            var sql = "SELECT * FROM languamania.dbo.TTranslationItem";
 
-            var translationItems = await _dbProvider.QueryListAsync<TranslationItem>(sql);
+        public async Task<IList<TranslationItem>> GetListAsync(string? language)
+        {
+            var sql = "SELECT * FROM languamania.dbo.TTranslationItem ";
+            IEnumerable<TranslationItem> translationItems;
+            if (language != null)
+            {
+                sql += "WHERE Language = @language";
+                var languageDbParam = new DbString()
+                {
+                    Value = language,
+                    IsAnsi = true,
+                    IsFixedLength = false
+                };
+                translationItems = await _dbProvider.QueryListAsync<TranslationItem>(sql, new { language = languageDbParam });
+            }
+            else
+                translationItems = await _dbProvider.QueryListAsync<TranslationItem>(sql);
             return translationItems.ToList();
         }
 
@@ -44,6 +57,5 @@ namespace Languamania.Data.Repositories
 
             await _dbProvider.InsertAsync(sql, new { Id = translationItem.Id, Text = translationItem.Text, Language = translationItem.Language });
         }
-        // Create + Update
     }
 }
