@@ -1,0 +1,25 @@
+.dictionary {
+    &__list {
+    }
+
+    &__item {
+        margin: 8px 0;
+    }
+    &__button {
+        display: block;
+        padding: 4px 10px;
+        width: fit-content;
+        height: 30px;
+        margin-top: 5px;
+        background-color: #7dc9f3;
+        border-radius: 4px;
+        transition: ease 0.3s;
+
+        &:hover {
+            box-shadow: 0 0 4px #6a92a9;
+        }
+        &:active {
+            background-color: darken(#7dc9f3, 15%);
+        }
+    }
+}
