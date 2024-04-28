@@ -1,0 +1,28 @@
+header,
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+}
+
+header {
+    border-bottom: 1px solid #ccc;
+}
+
+.header-logo {
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f8f8f8;
+}
+
+footer {
+    border-top: 1px solid #ccc;
+}

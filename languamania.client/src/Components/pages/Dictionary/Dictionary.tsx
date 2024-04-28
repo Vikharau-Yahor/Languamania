@@ -14,14 +14,6 @@ export default function Dictionary() {
             language: "English",
         },
     ];
-    const divStyles: React.CSSProperties = {
-        display: "flex",
-        flexDirection: "column",
-        height: "100%",
-        alignContent: "center",
-        justifyContent: "start",
-        backgroundColor: "rgb(253 253 253)",
-    };
 
     const uiItems = wordsData.map((w) => (
         <li className="dictionary__item" key={w.id}>
@@ -35,7 +27,7 @@ export default function Dictionary() {
     ));
 
     return (
-        <div className="dictionary" style={divStyles}>
+        <div className="dictionary">
             <h2 className="dictionary__heading">Words</h2>
             <ul className="dictionary__list">{uiItems}</ul>
         </div>
