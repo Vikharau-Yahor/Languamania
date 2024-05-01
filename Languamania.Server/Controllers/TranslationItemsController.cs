@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Languamania.Server.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class TranslationItemsController : ControllerBase
     {
         private readonly ILogger<TranslationItemsController> _logger;
